@@ -1,0 +1,45 @@
+import random
+words = ["apple","orange","banana","grape","pear","peach","mango","coconut","strawberry","blueberry","raspberry","blackberry","cherry","lemon","lime","plum","kiwi"]
+sel_word = random.choice(words)
+len_word = len(sel_word)
+print(f"you choose {len_word} letter word..start guessing!!")
+display = ""
+for x in range(len_word):
+  display += "_"
+print(display)  
+
+#get input from user
+
+game_over = False
+crct = []
+lives = len_word
+
+while not game_over:
+    display1 = ""
+    guess = input ("enter your guess:").lower()
+    for letter in sel_word:
+        if letter == guess:
+            display1 += letter
+            crct.append(letter)
+        elif letter in crct:
+            display1 += letter
+            
+        else:
+            display1 += "_"
+            
+    print(display1)
+    lives -= 1
+    print(f"lives left: {lives}")
+    if lives == 0:
+        game_over = True
+        print("you lose")
+        print(f"the word was {sel_word}")
+    if "_" not in display1:
+        game_over = True
+        print("you win")
+    
+    
+  
+
+
+  
